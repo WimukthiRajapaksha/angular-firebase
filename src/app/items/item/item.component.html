@@ -1,0 +1,59 @@
+<div class="col" style="margin: 0; padding-right: 10px;">
+    <div class="card border-success mb-4" style="max-width: 30rem;" (click)="open(content)" >
+        <div class="card-header bg-transparent border-success">{{data.title}}</div>
+        <div class="card-body text-success">
+          <img [src]="data.photo" width="auto" height="276px" style="align-content: center">
+        </div>
+        <div class="card-footer bg-transparent border-success">Rs.{{data.price}}</div>
+    </div>
+    <ng-template #content let-c="close" let-d="dismiss">
+        <form [formGroup]="newItemDetailsForm" (ngSubmit)="onSubmit()">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Delivery Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-10">
+                        <label class="center-block col-8" for="itemCost" style="padding: 0">Item Cost:</label>
+                        <label class="center-block col-2" for="itemCost">Rs.{{data.price}}</label>
+                    </div>
+                    <div class="form-group col-10">
+                        <label class="center-block col-8" for="deliveryCharge" style="padding: 0">Delivery Charge:</label>
+                        <label class="center-block col-2" for="deliveryCharge">Rs.200</label>
+                    </div>
+                    <div class="form-group col-10">
+                        <label class="center-block col-8" for="totalAmount" style="padding: 0">Total Amount:</label>
+                        <label class="center-block col-2" for="totalAmount"><h3>Rs.{{data.price + 200}}</h3></label>
+                    </div>
+                    <div class="form-group col-10">
+                        <label >Address: </label>
+                        <agm-map [latitude]='latitude' [longitude]='longitude' style="height: 400px; width: 400px;" (mapClick)="onChoseLocation($event)">
+                            <agm-marker [latitude]="lat" [longitude]="lng">
+                                </agm-marker> 
+                        </agm-map>
+                    </div>
+                    <div class="form-group col-12">
+                    <br>
+                        <label class="center-block" for="accountDetails">Account Details: </label>
+                        <div class="form-group col-12 row">
+                            <label class="center-block col-sm-4" for="cardNumber">Card Number: </label>
+                            <input class="form-control col-sm-6" type="number" formControlName="cardNumber" id="cardNumber" name="cardNumber" >
+                        </div>
+                        <div class="form-group col-12 row">
+                            <label class="center-block col-sm-4" for="expirationDate">Expiration Date: </label>
+                            <input class="form-control col-sm-6" type="date" formControlName="expirationDate" id="expirationDate" name="expirationDate" >
+                        </div>
+                        <div class="form-group col-12 row">
+                            <label class="center-block col-sm-4" for="cvv">CVV: </label>
+                            <input class="form-control col-sm-6" type="number" formControlName="cvv" id="cvv" name="cvv" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-outline-dark">Place Order</button>
+                <button type="button" class="btn btn-outline-dark" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </ng-template>
+</div>

@@ -1,0 +1,17 @@
+.login {
+    background-color: blue;
+    height: 850px;
+    width: 100%;
+    background-image: url("../../assets/login.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.loginForm {
+    background-color: bisque;
+    margin-top: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 10%;
+    overflow: hidden;
+}

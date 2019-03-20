@@ -1,0 +1,12 @@
+<ul class="nav fixed-top" style="background-color: darksalmon; margin-bottom: 10px;">
+    <li class="nav-item" >
+      <h3 class="nav-link active">Pick Your Item</h3>
+    </li>
+  </ul>
+<div class="card-columns" style="margin-top: 60px; background-color: rgba(244, 163, 163, 0.3);">
+  <div *ngIf="items.length > 0" style="padding: 0; margin: 0;">
+    <div *ngFor="let itemTaken of items" style="padding: 0; margin: 0">
+      <app-item [itemTaken]="itemTaken" style="background-color: chartreuse"></app-item>
+    </div>
+  </div>
+</div>
