@@ -1,6 +1,8 @@
 # FYP
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+This is a web app developed for a FYP project which is a Drone Delivery System. Get 3 locations from Angular Google Maps
+and send those locations to firebase database. Then the drones deliver the goods to the exact location using the points of firebase database.
 
 ## Development server
 
